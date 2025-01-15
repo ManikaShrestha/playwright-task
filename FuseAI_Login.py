@@ -14,13 +14,14 @@ def test_login():
 
         page.wait_for_load_state('load')
 
-        # Verify that the URL after login is correct
-        if page.url == 'https://globalstudio.fuse.ai/':
+         try:
+            page.locator('xpath=//h4[contains(text(),"Studio Projects")]').wait_for(timeout=5000)
             print("Login Success")
-        else:
-            print("Your username is invalid!")
-        
+        except Exception as e:
+            print("Your username is invalid!", str(e))
+            
         time.sleep(5)
+        browser.close()
 
         browser.close()
 
