@@ -21,7 +21,7 @@ def test_login():
             print("Your username is invalid!")
         
         time.sleep(5)
-
+        page.screenshot(path='after_login.png') 
         browser.close()
 
 test_login()
